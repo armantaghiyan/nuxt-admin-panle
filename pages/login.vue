@@ -8,7 +8,7 @@
                     <path opacity="0.06" fill-rule="evenodd" clip-rule="evenodd" d="M8.07751 15.9175L13.9419 4.63989L16.5849 7.28475L8.07751 15.9175Z" fill="#161616"></path>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z" fill="#7367F0"></path>
                 </svg>
-                <span class="ps-3 font-bold">Vuexy</span>
+                <span class="ps-3 font-bold">{{$t('app_name')}}</span>
             </div>
 
             <div>
@@ -16,9 +16,11 @@
             </div>
             <img src="/images/bg/bg-shape-image-light.png" alt="" class="absolute w-full h-[320px] bottom-0">
         </div>
-        <div class="flex flex-col justify-center bg-white p-12">
-            <h4 class="mb-3 text-start">Welcome to Panel! 👋</h4>
-            <p class="mb-6">Please sign-in to your account and start the adventure</p>
+        <div class="flex flex-col justify-center bg-white p-12 items-center">
+            <div class="max-w-[400px]">
+                <h4 class="mb-3 text-start">{{$t('login.welcome')}}</h4>
+                <p class="mb-6">{{$t('login.desc')}}</p>
+            </div>
         </div>
     </div>
 </template>

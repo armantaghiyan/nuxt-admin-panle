@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <i18n-provider>
         <nuxt-page/>
-    </div>
+    </i18n-provider>
 </template>

@@ -7,11 +7,18 @@
 
 @layer base {
     body {
-        font-family: PublicSans, serif;
         @apply text-base font-normal text-[15px] leading-[20.6px];
     }
 
     h4 {
         @apply text-[24px] font-medium;
     }
+}
+
+.public-sans {
+    font-family: PublicSans, serif;
+}
+
+.vazirmatn {
+    font-family: Vazirmatn, serif;
 }

@@ -7,25 +7,26 @@
             </div>
 
             <div>
-                <img src="/images/bg/auth-login.png" alt="auth login" class="max-w-[520px] py-5">
+                <img src="/images/bg/auth-register.png" alt="auth login" class="max-w-[520px] py-5">
             </div>
             <img src="/images/bg/bg-shape-image-light.png" alt="" class="absolute w-full h-[320px] bottom-0">
         </div>
         <div class="flex items-center justify-center p-12">
             <div class="w-full">
                 <div class="max-w-[400px] mx-auto">
-                    <h4 class="mb-3 text-start">{{ $t('auth.welcome') }}</h4>
-                    <p class="mb-6">{{ $t('auth.login_desc') }}</p>
+                    <h4 class="mb-3 text-start">{{ $t('auth.register_desc_1') }}</h4>
+                    <p class="mb-6">{{ $t('auth.register_desc_2') }}</p>
 
                     <div class="flex flex-col gap-6">
                         <text-input :title="$t('auth.username')" :placeholder="$t('auth.enter_username')"/>
                         <text-input type="password" :title="$t('auth.password')" placeholder="············"/>
+                        <text-input type="password" :title="$t('auth.repeat_password')" placeholder="············"/>
 
-                        <btn-primary>{{$t('auth.sin_in')}}</btn-primary>
+                        <btn-primary>{{$t('auth.sin_up')}}</btn-primary>
 
                         <p class="text-center">
-                            <span class="pe-1">{{$t('auth.new_in_platform')}}</span>
-                            <nuxt-link href="/register" class="text-primary">{{$t('auth.create_account')}}</nuxt-link>
+                            <span class="pe-1">{{$t('auth.already_have_an_account')}}</span>
+                            <nuxt-link href="/login" class="text-primary">{{$t('auth.sign_in_instead')}}</nuxt-link>
                         </p>
                     </div>
                 </div>

@@ -1,5 +1,7 @@
 <template>
     <i18n-provider>
-        <nuxt-page/>
+        <app-loading>
+            <nuxt-page/>
+        </app-loading>
     </i18n-provider>
 </template>

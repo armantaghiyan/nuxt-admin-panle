@@ -1,3 +1,14 @@
+<script setup>
+const {locale, setLocale} = useI18n()
+
+// Change language
+const changeLanguage = (newLocale) => {
+    setLocale(newLocale)
+}
+</script>
 <template>
-    <h1>Dashboard</h1>
+    <div>
+        <button @click="changeLanguage('en')">English</button>
+        <button @click="changeLanguage('fa')">Persian</button>
+    </div>
 </template>

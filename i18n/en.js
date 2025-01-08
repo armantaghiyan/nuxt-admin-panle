@@ -16,4 +16,8 @@ export default {
         register_desc_1: 'Adventure starts here 🚀',
         register_desc_2: 'Make your app management easy and fun!',
     },
+    menu: {
+        dashboard: 'Dashboard',
+        settings: 'Settings',
+    }
 }

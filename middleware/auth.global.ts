@@ -7,7 +7,5 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
     setTimeout(() => {
         $app.stopLoading();
-    }, 4000);
-
-    console.log('run')
+    }, 1000);
 });

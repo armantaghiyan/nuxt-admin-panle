@@ -10,9 +10,14 @@ export default {
     ],
     theme: {
         extend: {
-
             colors: {
                 primary: '#7367f0',
+
+                'menu-theme': '#2f3349',
+                'menu-color': '#cfcce4',
+                'menu-color-light': '#393D53',
+                'panel': '#F6F4F8',
+
 
                 'base': 'rgb(68, 64, 80)',
 

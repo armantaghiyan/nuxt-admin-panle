@@ -1,6 +1,7 @@
 @import "vazirmatn.css";
 @import "public-sans.css";
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,6 +17,10 @@
 
     input:focus {
         outline: none;
+    }
+
+    .base-shadow {
+        box-shadow: 0 .125rem .5rem 0 rgba(47, 43, 61, .12);
     }
 }
 

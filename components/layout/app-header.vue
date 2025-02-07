@@ -5,6 +5,10 @@
             <div class="flex">
                 <icon-box>
                     <i class="ti ti-language ti-md"></i>
+<!--                    <dropdown class="top-14 end-1 w-[160px] p-2 flex gap-0.5 flex-col">-->
+<!--                        <menu-item>English</menu-item>-->
+<!--                        <menu-item>Persian</menu-item>-->
+<!--                    </dropdown>-->
                 </icon-box>
                 <icon-box>
                     <i class="ti ti-bell ti-md"></i>

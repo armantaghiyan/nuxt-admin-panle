@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import { resolve } from 'path';
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
     devtools: {enabled: true},
@@ -17,12 +17,6 @@ export default defineNuxtConfig({
 
     css: ['~/assets/css/main.css'],
     ssr: false,
-    postcss: {
-        plugins: {
-            tailwindcss: {},
-            autoprefixer: {},
-        },
-    },
 
     app: {
         head: {
@@ -53,6 +47,9 @@ export default defineNuxtConfig({
         build: {
             cssCodeSplit: false,
         },
+        plugins: [
+            tailwindcss(),
+        ],
     },
 
     compatibilityDate: '2024-04-03',

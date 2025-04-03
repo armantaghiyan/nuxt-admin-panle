@@ -7,7 +7,7 @@ const $app = appStore();
         <slot/>
 
         <fade-animate :duration="300">
-            <div v-if="$app.loading" class="fixed top-0 flex items-center justify-center w-full min-h-screen bg-white">
+            <div v-if="$app.loading" class="fixed z-50 top-0 flex items-center justify-center w-full min-h-screen bg-white">
                 <div class="loader"></div>
             </div>
         </fade-animate>

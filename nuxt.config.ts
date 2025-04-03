@@ -38,8 +38,8 @@ export default defineNuxtConfig({
         defaultLocale: "en",
         langDir: "",
         locales: [
-            {code: "en", label: 'En', iso: "en-US", file: 'en.js', dir: 'ltr', fontClass: 'public-sans'},
-            {code: "fa", label: 'Fa', iso: "fa", file: 'fa.js', dir: 'rtl', fontClass: 'vazirmatn'},
+            {code: "en", label: 'English', iso: "en-US", file: 'en.js', dir: 'ltr', fontClass: 'public-sans'},
+            {code: "fa", label: 'Persian', iso: "fa", file: 'fa.js', dir: 'rtl', fontClass: 'vazirmatn'},
         ],
     },
 

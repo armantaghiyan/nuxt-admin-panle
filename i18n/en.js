@@ -1,5 +1,9 @@
 export default {
     app_name: 'Panel',
+    app: {
+        en: 'English',
+        fa: 'Persian',
+    },
     auth : {
         welcome: 'Welcome to Panel! 👋',
         login_desc: 'Please sign-in to your account and start the adventure',

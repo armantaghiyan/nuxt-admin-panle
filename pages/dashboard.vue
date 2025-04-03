@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full min-h-screen start-0">
+    <div class="w-full min-h-screen start-0 bg-panel">
         <app-sidebar/>
 
         <app-content>

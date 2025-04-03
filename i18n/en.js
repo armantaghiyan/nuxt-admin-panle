@@ -23,5 +23,6 @@ export default {
     menu: {
         dashboard: 'Dashboard',
         settings: 'Settings',
+        list: 'List',
     }
 }

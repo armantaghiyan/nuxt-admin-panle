@@ -23,5 +23,6 @@ export default {
     menu: {
         dashboard: 'داشبورد',
         settings: 'تنظیمات',
+        list: 'لیست',
     }
 }

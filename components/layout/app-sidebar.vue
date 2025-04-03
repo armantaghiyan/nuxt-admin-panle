@@ -25,15 +25,15 @@ watch(breakpoint, () => {
                     <span class="text-white text-[22px] font-bold">{{ $t('app_name')}}</span>
                 </div>
                 <div class="px-3">
-                    <menu-item v-for="i in 3" class="mt-1.5">{{ $t('menu.dashboard') }}</menu-item>
+                    <nuxt-link href="/dashboard">
+                        <menu-item v-for="i in 3" class="mt-1.5">{{ $t('menu.dashboard') }}</menu-item>
+                    </nuxt-link>
 
                     <menu-section>{{$t('menu.settings')}}</menu-section>
 
-                    <menu-item v-for="i in 3" class="mt-1.5">{{ $t('menu.dashboard') }}</menu-item>
-
-                    <menu-section>{{$t('menu.settings')}}</menu-section>
-
-                    <menu-item v-for="i in 3" class="mt-1.5">{{ $t('menu.dashboard') }}</menu-item>
+                    <nuxt-link href="/dashboard/list">
+                        <menu-item  class="mt-1.5">{{ $t('menu.list') }}</menu-item>
+                    </nuxt-link>
                 </div>
             </div>
         </aside>

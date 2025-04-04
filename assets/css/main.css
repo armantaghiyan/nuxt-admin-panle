@@ -7,6 +7,21 @@
     --color-primary: #7367f0;
     --color-light-primary: #E8E7FD;
 
+    --color-success: #28c76f;
+    --color-light-success: #DDF6E8;
+
+    --color-info: #00bad1;
+    --color-light-info: #d6f4f8;
+
+    --color-warning: #ff9f43;
+    --color-light-warning: #fff0e1;
+
+    --color-danger: #ff4c51;
+    --color-light-danger: #ffe2e3;
+
+    --color-dark: #808390;
+    --color-light-dark: #ebebed;
+
     --color-menu-theme: #2f3349;
     --color-menu-color: #cfcce4;
     --color-menu-color-light: #393d53;
@@ -16,7 +31,8 @@
     --color-gray-2: rgb(209, 208, 212);
     --color-gray-3: #82808b;
     --color-gray-4: #97959e;
-
+    --color-gray-5: #e6d6e8;
+    --color-gray-6: #6b5d77;
 
     --shadow-xs: 0 0.0625rem 0.375rem 0 rgba(47, 43, 61, 0.1);
     --shadow-sm: 0 0.125rem 0.5rem 0 rgba(47, 43, 61, 0.12);
@@ -25,14 +41,6 @@
     --shadow-xl: 0 0.3125rem 1.875rem 0 rgba(47, 43, 61, 0.18);
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
     *,
     ::after,
@@ -58,6 +66,10 @@
 
     .base-shadow {
         box-shadow: 0 .125rem .5rem 0 rgba(47, 43, 61, .12);
+    }
+
+    a:hover {
+        @apply text-primary;
     }
 }
 

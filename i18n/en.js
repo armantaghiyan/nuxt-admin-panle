@@ -3,6 +3,19 @@ export default {
     app: {
         en: 'English',
         fa: 'Persian',
+        filter: 'Filter',
+        all: 'All',
+    },
+    global: {
+        id: "Id",
+        name: "Name",
+        status: "Status",
+        search: "Search",
+        add: "Add",
+        customers: "Customers",
+        price: "Price",
+        date: "Date",
+        actions: "Actions",
     },
     auth : {
         welcome: 'Welcome to Panel! 👋',
@@ -24,5 +37,8 @@ export default {
         dashboard: 'Dashboard',
         settings: 'Settings',
         list: 'List',
+    },
+    list: {
+
     }
 }

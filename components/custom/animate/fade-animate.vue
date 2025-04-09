@@ -6,7 +6,9 @@ defineProps<{
 
 <template>
     <Transition>
-        <slot/>
+        <div>
+            <slot/>
+        </div>
     </Transition>
 </template>
 

@@ -1,30 +1,30 @@
 <script setup lang="ts">
 const route = useRoute();
 
-function fullPage (){
+function fullPage() {
     return route.fullPath === '/login' || route.fullPath === '/register';
 }
 </script>
+
 
 <template>
     <i18n-provider>
         <app-loading>
             <div v-if="!fullPage()" class="w-full min-h-screen start-0 bg-panel">
                 <app-sidebar/>
-
                 <app-content>
                     <app-header/>
-
                     <div class="pt-6">
-                        <Transition name="blur" mode="out-in">
-                            <NuxtPage/>
-                        </Transition>
+                        <transition name="blur" mode="out-in">
+                            <nuxt-page/>
+                        </transition>
                     </div>
                 </app-content>
             </div>
-            <Transition v-else name="blur" mode="out-in">
-                <NuxtPage/>
-            </Transition>
+
+            <div v-else>
+                <nuxt-page/>
+            </div>
         </app-loading>
     </i18n-provider>
 </template>

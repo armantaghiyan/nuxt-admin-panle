@@ -18,7 +18,7 @@ const changeLanguage = (newLocale) => {
         </div>
         <div class="flex gap-2">
             <div class="flex">
-                <option-menu :width="160" :top="60">
+                <option-menu :width="160" :top="60" position="auto">
                     <template #button>
                         <icon-box>
                             <i class="ti ti-language ti-md"></i>

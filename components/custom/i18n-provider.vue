@@ -2,17 +2,27 @@
 const {locale, locales} = useI18n();
 
 
+const direction = ref<string>('ltr');
+const $app = appStore();
+
 watch(locale, () => {
     setFont();
+
+    locales.value.map(item => {
+        if(item.code === locale.value && item.dir){
+            $app.dir = item.dir;
+        }
+    });
 });
 
-const direction = ref('ltr');
 
 function setFont() {
     locales.value.map(item => {
         if (locale.value === item.code) {
             document.body.classList.add(item.fontClass);
-            direction.value = item.dir;
+            if(item.dir){
+                direction.value = item.dir;
+            }
         }else{
             document.body.classList.remove(item.fontClass);
         }

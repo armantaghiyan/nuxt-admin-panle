@@ -80,3 +80,7 @@
 .vazirmatn {
     font-family: Vazirmatn, serif;
 }
+
+.menu-active-item {
+    @apply bg-primary text-white;
+}

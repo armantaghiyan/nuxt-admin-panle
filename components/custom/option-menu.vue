@@ -7,11 +7,13 @@ const {
     position = 'right',
     top = 0,
 } = defineProps<{
-    position?: 'left' | 'right',
+    position?: 'left' | 'right' | 'auto',
     width?: number
     rounded?: number
     top?: number
 }>();
+
+const $app = appStore();
 </script>
 
 <template>
@@ -32,7 +34,10 @@ const {
         >
             <MenuItems
                 class="absolute z-50 bg-white shadow-lg"
-                :class="{'left-0': position === 'left', 'right-0': position === 'right'}"
+                :class="{
+                    'left-0': position === 'left' || (position === 'auto' && $app.dir === 'rtl'),
+                    'right-0': position === 'right' || (position === 'auto' && $app.dir === 'ltr')
+                }"
                 :style="`width: ${width}px;border-radius: ${rounded}px; top: ${top}px`"
             >
                 <slot/>

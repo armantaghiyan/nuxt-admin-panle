@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import BtnSearch from "~/components/btn/btn-search.vue";
-
 const params = reactive({
     id: '',
     name: '',

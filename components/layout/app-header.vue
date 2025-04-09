@@ -12,17 +12,17 @@ const changeLanguage = (newLocale) => {
 <template>
     <card class="sticky h-14 px-6 flex items-center justify-between">
         <div>
-            <icon-box @click="$app.isOpenSidebar=!$app.isOpenSidebar">
+            <icon-button @click="$app.isOpenSidebar=!$app.isOpenSidebar">
                 <i class="ti ti-menu-2"></i>
-            </icon-box>
+            </icon-button>
         </div>
         <div class="flex gap-2">
             <div class="flex">
                 <option-menu :width="160" :top="60" position="auto">
                     <template #button>
-                        <icon-box>
+                        <icon-button>
                             <i class="ti ti-language ti-md"></i>
-                        </icon-box>
+                        </icon-button>
                     </template>
 
                     <div class="flex flex-col p-2 gap-1">
@@ -33,9 +33,9 @@ const changeLanguage = (newLocale) => {
                         </btn-clickable>
                     </div>
                 </option-menu>
-                <icon-box>
+                <icon-button>
                     <i class="ti ti-bell ti-md"></i>
-                </icon-box>
+                </icon-button>
             </div>
 
             <img src="/images/icon/user.png" alt="user icon" class="size-10">

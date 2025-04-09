@@ -1,6 +1,4 @@
 <script setup>
-import BtnClickable from "~/components/btn/btn-clickable.vue";
-
 const $app = appStore()
 const {locale, setLocale, locales} = useI18n();
 

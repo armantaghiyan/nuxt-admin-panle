@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import BtnDelete from "~/components/custom/buttons/btn-delete.vue";
+import BtnOption from "~/components/custom/buttons/btn-option.vue";
+
 const params = reactive({
     id: '',
     name: '',
@@ -60,10 +63,24 @@ onMounted(() => {
                             <user-data image="/images/icon/user.png" name="arman taghiyan" sub="test@gmail.com"/>
                         </custom-td>
                         <custom-td>
-                            <div class="flex items-center gap-1 font-medium text-success">
-                                <div class="size-3 rounded-full bg-success"></div>
-                                <div>Paid</div>
-                            </div>
+                            <badge type="label" theme="warning">Scheduled</badge>
+                        </custom-td>
+                        <custom-td>
+
+                        </custom-td>
+                        <custom-td class="flex">
+                            <btn-delete/>
+                            <btn-see href="/"/>
+                            <option-menu :width="160" position="auto" :top="40">
+                                <template #button>
+                                    <btn-option/>
+                                </template>
+
+                                <div class="p-2">
+                                    <btn-clickable>{{$t('global.edit')}}</btn-clickable>
+                                    <btn-clickable>{{$t('global.update')}}</btn-clickable>
+                                </div>
+                            </option-menu>
                         </custom-td>
                     </custom-tr>
                 </custom-tbody>

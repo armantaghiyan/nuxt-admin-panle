@@ -16,6 +16,8 @@ export default {
         price: "Price",
         date: "Date",
         actions: "Actions",
+        edit: "Edit",
+        update: "Update",
     },
     auth : {
         welcome: 'Welcome to Panel! 👋',

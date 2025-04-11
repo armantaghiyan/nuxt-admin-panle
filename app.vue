@@ -1,11 +1,11 @@
 <script setup lang="ts">
+useTitle()
 const route = useRoute();
 
 function fullPage() {
     return route.fullPath === '/login' || route.fullPath === '/register';
 }
 </script>
-
 
 <template>
     <i18n-provider>
@@ -32,7 +32,7 @@ function fullPage() {
 <style scoped>
 .blur-enter-active,
 .blur-leave-active {
-    transition: all 0.2s ease;
+    transition: all 200ms ease;
 }
 
 .blur-enter-from {

@@ -26,7 +26,7 @@ const changeLanguage = (newLocale) => {
                     <div class="flex flex-col p-2 gap-1">
                         <btn-clickable v-for="lang in locales"
                            @click="changeLanguage(lang.code)"
-                           class="px-4 py-2 rounded-[6px]" :class="{'text-primary bg-light-primary': lang.code === locale}">
+                           :class="{'text-primary bg-light-primary': lang.code === locale}">
                             {{ $t(`app.${lang.code}`) }}
                         </btn-clickable>
                     </div>

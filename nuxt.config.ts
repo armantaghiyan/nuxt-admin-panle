@@ -28,6 +28,7 @@ export default defineNuxtConfig({
                 {rel: 'stylesheet', href: '/tabler/css/tabler-icons.min.css'},
                 {rel: 'stylesheet', href: '/tabler/css/tabler-icons-filled.min.css'},
                 {rel: 'stylesheet', href: '/tabler/css/tabler-icons-outline.min.css'},
+                {rel: 'icon',type: 'image/x-icon', href: '/images/icon/favicon.svg'},
             ],
         }
     },

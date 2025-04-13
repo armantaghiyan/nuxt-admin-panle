@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BtnDelete from "~/components/custom/buttons/btn-delete.vue";
 import BtnOption from "~/components/custom/buttons/btn-option.vue";
+import axios from "axios";
 
 const params = reactive({
     id: '',
@@ -10,8 +11,13 @@ const params = reactive({
     page_rows: 7,
 });
 
+const items = ref<any[]>([]);
+
 function fetchData() {
-    console.log('fetch data');
+    axios.get('/data.json')
+        .then(res => {
+            items.value = res.data;
+        })
 }
 
 onMounted(() => {
@@ -22,7 +28,6 @@ onMounted(() => {
 <template>
     <div>
         <card :title="$t('app.filter')">
-
             <filter-content>
                 <text-input :title="$t('global.id')" v-model="params.id"/>
                 <text-input :title="$t('global.name')" v-model="params.name"/>
@@ -54,20 +59,20 @@ onMounted(() => {
                     </custom-tr>
                 </custom-thead>
                 <custom-tbody>
-                    <custom-tr v-for="i in 7" class="border-b border-gray-5">
+                    <custom-tr v-for="item in items" class="border-b border-gray-5">
                         <custom-td>
-                            <nuxt-link href="#" class="text-primary">#4498</nuxt-link>
+                            <nuxt-link href="#" class="text-primary">
+                                <id-formater :id="item.id"/>
+                            </nuxt-link>
                         </custom-td>
-                        <custom-td>Oct 25, 2022, 10:48</custom-td>
+                        <custom-td>{{ item.date }}</custom-td>
                         <custom-td>
-                            <user-data image="/images/icon/user.png" name="arman taghiyan" sub="test@gmail.com"/>
+                            <user-data :image="item.user?.image" :name="item.user?.name" :sub="item.user?.email"/>
                         </custom-td>
                         <custom-td>
-                            <badge type="label" theme="warning">Scheduled</badge>
+                            <badge type="label" :theme="item.status_text">{{ item.status }}</badge>
                         </custom-td>
-                        <custom-td>
-
-                        </custom-td>
+                        <custom-td>{{item.price}}</custom-td>
                         <custom-td class="flex">
                             <btn-delete/>
                             <btn-see href="/"/>

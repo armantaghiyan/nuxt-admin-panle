@@ -1,5 +1,6 @@
 @import './vazirmatn.css' layer(base);
 @import './public-sans.css' layer(base);
+@import 'tippy.js/dist/tippy.css';
 
 @import 'tailwindcss';
 

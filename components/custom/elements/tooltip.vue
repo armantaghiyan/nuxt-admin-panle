@@ -7,12 +7,12 @@ const props = defineProps<{
 }>();
 
 onMounted(() => {
-  nextTick(() => {
-      tippy(`#${props.for}`, {
-          content: props.text.toString(),
-          placement: 'top',
-      });
-  });
+    nextTick(() => {
+        tippy(`#${props.for}`, {
+            content: props.text.toString(),
+            placement: 'top',
+        });
+    });
 });
 </script>
 

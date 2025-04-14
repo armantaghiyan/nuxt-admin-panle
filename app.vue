@@ -32,7 +32,7 @@ function fullPage() {
 <style scoped>
 .blur-enter-active,
 .blur-leave-active {
-    transition: all 200ms ease;
+    transition: all 300ms ease;
 }
 
 .blur-enter-from {

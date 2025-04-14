@@ -11,6 +11,10 @@ onMounted(() => {
         tippy(`#${props.for}`, {
             content: props.text.toString(),
             placement: 'top',
+            interactive: true,
+            touch: true,
+            hideOnClick: true,
+            duration: 200,
         });
     });
 });

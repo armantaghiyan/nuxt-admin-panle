@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import BtnDelete from "~/components/custom/buttons/btn-delete.vue";
-import BtnOption from "~/components/custom/buttons/btn-option.vue";
 import axios from "axios";
 
 const params = reactive({
@@ -9,15 +7,17 @@ const params = reactive({
     status: '',
     search: '',
     page_rows: 7,
+    page: 1,
 });
 
 const items = ref<any[]>([]);
+const count = ref(100);
 
 function fetchData() {
     axios.get('/data.json')
         .then(res => {
             items.value = res.data;
-        })
+        });
 }
 
 onMounted(() => {
@@ -60,10 +60,8 @@ onMounted(() => {
                 </custom-thead>
                 <custom-tbody>
                     <custom-tr v-for="item in items" class="border-b border-gray-5">
-                        <custom-td>
-                            <nuxt-link href="#" class="text-primary">
-                                <id-formater :id="item.id"/>
-                            </nuxt-link>
+                        <custom-td :copy="item.id">
+                            <id-formater :id="item.id"/>
                         </custom-td>
                         <custom-td>{{ item.date }}</custom-td>
                         <custom-td>
@@ -90,6 +88,8 @@ onMounted(() => {
                     </custom-tr>
                 </custom-tbody>
             </custom-table>
+
+            <pagination v-model="params.page" :count="count" :page-rows="params.page_rows" @change="fetchData"/>
         </card>
     </div>
 </template>

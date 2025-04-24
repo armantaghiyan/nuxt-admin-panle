@@ -13,7 +13,7 @@ watch(breakpoint, () => {
 </script>
 
 <template>
-    <div>
+    <div class="relative z-100">
         <fade-animate :duration="200">
             <div v-if="$app.isOpenSidebar && breakpoint !== 'xl'" @click="$app.isOpenSidebar = false" class="bg-gray-4/50 w-full h-screen fixed to-pink-50 right-0 left-0 z-40"></div>
         </fade-animate>

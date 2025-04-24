@@ -11,7 +11,7 @@ const {breakpoint} = useBreakpoint();
             'start-0': $app.isOpenSidebar && breakpoint !== 'xl'
         }">
 
-        <div class="max-w-[1390px] mx-auto py-4 px-6  min-h-screen">
+        <div class="max-w-[1390px] mx-auto min-h-screen">
             <slot/>
         </div>
     </div>

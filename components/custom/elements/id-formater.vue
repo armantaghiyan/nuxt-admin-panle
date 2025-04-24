@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
     id: string | number
 }>();
 
@@ -12,7 +12,7 @@ function shortenId(id: string) {
 </script>
 
 <template>
-    <span :id="parentId">
+    <span :id="parentId" class="text-primary">
         <span v-if="typeof id === 'number'">#{{ id }}</span>
         <tooltip v-else :for="parentId" :text="id">
             <span :id="parentId">#{{ shortenId(id) }}</span>

@@ -18,6 +18,8 @@ export default {
         actions: "Actions",
         edit: "Edit",
         update: "Update",
+        copy_message: "Text copied successfully",
+        copy_failed: "Copy failed",
     },
     auth : {
         welcome: 'Welcome to Panel! 👋',
@@ -42,5 +44,8 @@ export default {
     },
     list: {
 
+    },
+    pagination: {
+        desc: "Showing {p1} to {p2} of {p3} entries"
     }
 }

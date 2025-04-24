@@ -14,7 +14,7 @@ function fullPage() {
                 <app-sidebar/>
                 <app-content>
                     <app-header/>
-                    <div class="pt-6">
+                    <div class="py-6 px-4">
                         <transition name="blur" mode="out-in">
                             <nuxt-page/>
                         </transition>

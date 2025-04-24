@@ -2,7 +2,7 @@
 const {copyToClipboard} = useClipboard();
 
 const {
-    copy = null
+    copy = null,
 } = defineProps<{
     copy?: string | number | null | undefined
 }>();

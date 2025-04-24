@@ -67,7 +67,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div v-if="paginationPageCount > 1" class="flex md:justify-between justify-center items-center p-4">
+    <div  class="flex md:justify-between justify-center items-center p-4">
         <div class="text-gray-8 md:flex hidden">
             {{
                 t('pagination.desc', {
@@ -78,7 +78,7 @@ onMounted(() => {
             }}
         </div>
 
-        <div class="flex gap-1.5" :class="{
+        <div v-if="paginationPageCount > 1" class="flex gap-1.5" :class="{
             'flex-row-reverse' : locales.filter(item => item.code === locale)?.[0]?.dir === 'rtl',
         }">
             <btn-pagination :is-active="false" :disabled="page === 1" @click="changePage(1)" class="sm:flex hidden">

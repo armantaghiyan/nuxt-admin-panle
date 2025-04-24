@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
     <div class="flex gap-3">
-        <div class="flex items-center">
+        <div class="flex-none flex items-center">
             <img :src="image" alt="" class="size-8 rounded-full">
         </div>
 

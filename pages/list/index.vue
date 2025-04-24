@@ -11,7 +11,7 @@ const params = reactive({
 });
 
 const items = ref<any[]>([]);
-const count = ref(100);
+const count = ref(1500);
 
 function fetchData() {
     axios.get('/data.json')
@@ -50,12 +50,12 @@ onMounted(() => {
             <custom-table>
                 <custom-thead>
                     <custom-tr>
-                        <custom-th>{{ $t('global.id') }}</custom-th>
-                        <custom-th>{{ $t('global.date') }}</custom-th>
-                        <custom-th>{{ $t('global.customers') }}</custom-th>
+                        <custom-th fixed :width="180">{{ $t('global.id') }}</custom-th>
+                        <custom-th :width="180">{{ $t('global.date') }}</custom-th>
+                        <custom-th :width="280">{{ $t('global.customers') }}</custom-th>
                         <custom-th>{{ $t('global.status') }}</custom-th>
                         <custom-th>{{ $t('global.price') }}</custom-th>
-                        <custom-th>{{ $t('global.actions') }}</custom-th>
+                        <custom-th fixed :width="160">{{ $t('global.actions') }}</custom-th>
                     </custom-tr>
                 </custom-thead>
                 <custom-tbody>

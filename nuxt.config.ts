@@ -53,5 +53,18 @@ export default defineNuxtConfig({
         ],
     },
 
+    //==================================================================================================================
+    $production: {
+        appConfig: {
+            baseURL: 'https://api.exam.local/',
+        },
+    },
+
+    $development: {
+        appConfig: {
+            baseURL: 'http://localhost:3000/',
+        },
+    },
+
     compatibilityDate: '2024-04-03',
 })

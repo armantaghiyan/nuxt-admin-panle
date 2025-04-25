@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import axios from "axios";
+const {callApi} = useCallApi();
 
 const params = reactive({
     id: '',
@@ -14,7 +14,7 @@ const items = ref<any[]>([]);
 const count = ref(1500);
 
 function fetchData() {
-    axios.get('/data.json')
+    callApi.get('/data.json')
         .then(res => {
             items.value = res.data;
         });

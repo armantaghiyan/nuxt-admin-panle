@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     modules: ['@nuxtjs/i18n', '@pinia/nuxt'],
 
     imports: {
-        dirs: ['utils/**/*.ts'],
+        dirs: ['utils/**/*.ts', 'composables/**/*.ts'],
     },
 
     components: [
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
                 {rel: 'stylesheet', href: '/tabler/css/tabler-icons.min.css'},
                 {rel: 'stylesheet', href: '/tabler/css/tabler-icons-filled.min.css'},
                 {rel: 'stylesheet', href: '/tabler/css/tabler-icons-outline.min.css'},
-                {rel: 'icon',type: 'image/x-icon', href: '/images/icon/favicon.svg'},
+                {rel: 'icon', type: 'image/x-icon', href: '/images/icon/favicon.svg'},
             ],
         }
     },

@@ -1,10 +1,5 @@
 <script setup lang="ts">
 const model = defineModel();
-const emit = defineEmits(['onChange']);
-
-watch(model, () => {
-    emit('onChange');
-});
 </script>
 
 <template>

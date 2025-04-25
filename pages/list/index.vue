@@ -1,24 +1,5 @@
 <script setup lang="ts">
-const {callApi} = useCallApi();
-
-const params = reactive({
-    id: '',
-    name: '',
-    status: '',
-    search: '',
-    page_rows: 7,
-    page: 1,
-});
-
-const items = ref<any[]>([]);
-const count = ref(1500);
-
-function fetchData() {
-    callApi.get('/data.json')
-        .then(res => {
-            items.value = res.data;
-        });
-}
+const {fetchData, items, params, count, reFetchData} = useList();
 
 onMounted(() => {
     fetchData();
@@ -37,11 +18,11 @@ onMounted(() => {
             <action-content>
                 <div class="flex gap-4">
                     <text-input :placeholder="$t('global.search')" class="sm:w-50 w-full" v-model="params.search"/>
-                    <btn-search @click="fetchData"/>
+                    <btn-search @click="reFetchData"/>
                 </div>
 
                 <div class="flex gap-4">
-                    <page-rows v-model="params.page_rows" @on-change="fetchData"/>
+                    <page-rows v-model="params.page_rows"/>
 
                     <btn-primary-add/>
                 </div>
@@ -50,11 +31,11 @@ onMounted(() => {
             <custom-table>
                 <custom-thead>
                     <custom-tr>
-                        <custom-th fixed :width="180">{{ $t('global.id') }}</custom-th>
-                        <custom-th :width="180">{{ $t('global.date') }}</custom-th>
+                        <custom-th fixed :width="180" sort-key="id" v-model:sort="params.sort" v-model:sort-type="params.sort_type">{{ $t('global.id') }}</custom-th>
+                        <custom-th :width="180" sort-key="date" v-model:sort="params.sort" v-model:sort-type="params.sort_type">{{ $t('global.date') }}</custom-th>
                         <custom-th :width="280">{{ $t('global.customers') }}</custom-th>
                         <custom-th>{{ $t('global.status') }}</custom-th>
-                        <custom-th>{{ $t('global.price') }}</custom-th>
+                        <custom-th sort-key="price" v-model:sort="params.sort" v-model:sort-type="params.sort_type">{{ $t('global.price') }}</custom-th>
                         <custom-th fixed :width="160">{{ $t('global.actions') }}</custom-th>
                     </custom-tr>
                 </custom-thead>

@@ -1,5 +1,6 @@
 export default function useList() {
     const {callApi} = useCallApi();
+    const alert = useAlert();
 
     const items = ref<any[]>([]);
     const count = ref(2500);
@@ -31,11 +32,18 @@ export default function useList() {
     watch(() => params.sort_type, reFetchData);
     watch(() => params.page_rows, reFetchData);
 
+    async function deleteItem(itemId: string|number){
+        if(await alert.confirm()){
+            items.value = items.value.filter(item => item.id != itemId);
+        }
+    }
+
     return {
         fetchData,
         items,
         params,
         count,
         reFetchData,
+        deleteItem,
     }
 }

@@ -47,5 +47,11 @@ export default {
     },
     pagination: {
         desc: "Showing {p1} to {p2} of {p3} entries"
+    },
+    confirm: {
+        title: "Are you sure?",
+        text: "Are you sure you want to perform this operation?",
+        confirm: "Yes",
+        cancel: "Cancel",
     }
 }

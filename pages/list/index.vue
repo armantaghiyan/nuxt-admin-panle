@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const {fetchData, items, params, count, reFetchData} = useList();
+const {fetchData, items, params, count, reFetchData, deleteItem} = useList();
 
 onMounted(() => {
     fetchData();
@@ -40,7 +40,7 @@ onMounted(() => {
                     </custom-tr>
                 </custom-thead>
                 <custom-tbody>
-                    <custom-tr v-for="item in items" class="border-b border-gray-5">
+                    <custom-tr v-for="item in items" :key="item.id" class="border-b border-gray-5">
                         <custom-td :copy="item.id">
                             <id-formater :id="item.id"/>
                         </custom-td>
@@ -53,8 +53,8 @@ onMounted(() => {
                         </custom-td>
                         <custom-td>{{item.price}}</custom-td>
                         <custom-td class="flex">
-                            <btn-delete/>
-                            <btn-see href="/"/>
+                            <btn-delete @click="deleteItem(item.id)"/>
+                            <btn-see :href="`/list/${item.id}`"/>
                             <option-menu :width="160" position="auto" :top="40">
                                 <template #button>
                                     <btn-option/>

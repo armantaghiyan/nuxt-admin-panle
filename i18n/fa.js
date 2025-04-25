@@ -45,5 +45,11 @@ export default {
     list: {},
     pagination: {
         desc: "نمایش {p1} تا {p2} از {p3} ورودی"
+    },
+    confirm: {
+        title: "آیا اطمینان دارید؟",
+        text: "آیا از انجام این عملیات اطمینان دارید؟",
+        confirm: "بله",
+        cancel: "انصراف"
     }
 }

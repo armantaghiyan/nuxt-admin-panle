@@ -1,8 +1,16 @@
 import {defineStore} from 'pinia';
+import type Admin from "~/utils/models/Admin";
 
-export const useStore = defineStore('user', {
+export const userStore = defineStore('user', {
     state: () => ({
-        count: 0,
+        isAuth: false as boolean,
+        user: {} as Admin,
+        tryGetUser: 0
     }),
-    actions: {},
+    actions: {
+        login(user: Admin) {
+            this.user = user;
+            this.isAuth = true;
+        }
+    },
 })

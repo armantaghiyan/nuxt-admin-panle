@@ -3,7 +3,6 @@
 @import './public-sans.css' layer(base);
 @import 'tippy.js/dist/tippy.css';
 @import 'toastify-js/src/toastify.css';
-@import 'sweetalert2/src/sweetalert2.scss';
 
 @theme {
     --color-primary: #7367f0;

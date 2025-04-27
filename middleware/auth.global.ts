@@ -1,11 +1,37 @@
-export default defineNuxtRouteMiddleware((to, from) => {
-    const $app = appStore();
-    // const user = useUser();
-    // if (!user.value && to.name !== 'login') {
-    //     return navigateTo('/login');
-    // }
+import {defineNuxtRouteMiddleware, navigateTo} from 'nuxt/app';
+import type {AdminStartResponse} from '~/utils/api/admin';
 
-    setTimeout(() => {
+export default defineNuxtRouteMiddleware(async (to) => {
+    const $app = appStore();
+    const $user = userStore();
+    const {callApi} = useCallApi();
+
+    if (!$user.isAuth && $user.tryGetUser === 0) {
+        try {
+            const response = await callApi.get<AdminStartResponse>('admin/start');
+
+            if (response.data.data.admin) {
+                $user.login(response.data.data.admin);
+            }
+
+            $user.tryGetUser += 1;
+        } catch (error) {
+            console.error('Error during auto-login:', error);
+        }
+
         $app.stopLoading();
-    }, 1000);
+    }
+
+    if (!$user.isAuth) {
+        $app.stopLoading();
+        if (to.name !== 'login') {
+            return navigateTo('/login');
+        }
+    } else {
+        $app.stopLoading();
+        if (to.name === 'login') {
+            return navigateTo('/');
+        }
+    }
 });
+

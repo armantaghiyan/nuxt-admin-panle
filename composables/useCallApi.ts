@@ -3,6 +3,7 @@ import axios from "axios";
 export function useCallApi() {
     const config = useAppConfig();
     const pending = ref(false);
+    const apiToken = useCookie('api_token');
 
     const callApi = axios.create({
         baseURL: config.baseURL,
@@ -13,8 +14,12 @@ export function useCallApi() {
         },
     });
 
-    callApi.interceptors.request.use(function (config) {
+    callApi.interceptors.request.use((config) => {
         pending.value = true;
+
+        if (apiToken.value) {
+            config.headers.Authorization = `Bearer ${apiToken.value}`;
+        }
 
         return config;
     }, (error) => {
@@ -23,7 +28,7 @@ export function useCallApi() {
         return Promise.reject(error);
     });
 
-    callApi.interceptors.response.use(function (response) {
+    callApi.interceptors.response.use((response) => {
         pending.value = false;
 
         return response;

@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     modules: ['@nuxtjs/i18n', '@pinia/nuxt'],
 
     imports: {
-        dirs: ['utils/**/*.ts', 'composables/**/*.ts'],
+        dirs: ['utils/**/*.ts', 'composables/**/*.ts', 'utils/**/*.ts'],
     },
 
     components: [
@@ -62,7 +62,7 @@ export default defineNuxtConfig({
 
     $development: {
         appConfig: {
-            baseURL: 'http://localhost:3000/',
+            baseURL: 'http://localhost:8000/admin/',
         },
     },
 

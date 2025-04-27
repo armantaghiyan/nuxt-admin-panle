@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const {loginForm, login} = useAdmin();
+</script>
+
 <template>
     <div>
         <div class="grid lg:grid-cols-3 grid-cols-1 min-h-screen">
@@ -6,7 +10,6 @@
                     <logo/>
                     <span class="ps-3 font-bold">{{ $t('app_name') }}</span>
                 </div>
-
                 <div>
                     <img src="/images/bg/auth-login.png" alt="auth login" class="max-w-[520px] py-5">
                 </div>
@@ -18,19 +21,12 @@
                         <h4 class="mb-3 text-start">{{ $t('auth.welcome') }}</h4>
                         <p class="mb-6">{{ $t('auth.login_desc') }}</p>
 
-                        <div class="flex flex-col gap-6">
-                            <text-input :title="$t('auth.username')" :placeholder="$t('auth.enter_username')"/>
-                            <text-input type="password" :title="$t('auth.password')" placeholder="············"/>
+                        <form @submit.prevent="login" class="flex flex-col gap-6">
+                            <text-input :title="$t('auth.username')" :placeholder="$t('auth.enter_username')" v-model="loginForm.username"/>
+                            <text-input type="password" :title="$t('auth.password')" placeholder="············" v-model="loginForm.password"/>
 
-                            <nuxt-link href="/">
-                                <btn-primary class="w-full">{{ $t('auth.sin_in') }}</btn-primary>
-                            </nuxt-link>
-
-                            <p class="text-center">
-                                <span class="pe-1">{{ $t('auth.new_in_platform') }}</span>
-                                <nuxt-link href="/register" class="text-primary">{{ $t('auth.create_account') }}</nuxt-link>
-                            </p>
-                        </div>
+                            <btn-primary type="submit" class="w-full">{{ $t('auth.sin_in') }}</btn-primary>
+                        </form>
                     </div>
                 </div>
             </div>

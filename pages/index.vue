@@ -1,9 +1,9 @@
 <script setup lang="ts">
-
+const {logout} = useAdmin();
 </script>
 
 <template>
     <div>
-        <h1>Dashboard</h1>
+        <btn-primary @click="logout">Logout</btn-primary>
     </div>
 </template>

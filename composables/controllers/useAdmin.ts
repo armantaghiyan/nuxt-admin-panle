@@ -26,8 +26,19 @@ export default function useAdmin() {
 
     //==================================================================================================================
 
+    function logout() {
+        callApi.post<AdminLoginResponse>('admin/logout', loginForm).then(res => {
+            $user.logout();
+            apiToken.value = null;
+            router.replace({path: '/login'});
+        });
+    }
+
+    //==================================================================================================================
+
     return {
         loginForm,
-        login
+        login,
+        logout
     }
 }

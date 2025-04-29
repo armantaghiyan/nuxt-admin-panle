@@ -5,6 +5,7 @@ export function useCallApi() {
     const pending = ref(false);
     const apiToken = useCookie('api_token');
     const $app = appStore();
+    const lang = useCookie('i18n_redirected');
 
     const callApi = axios.create({
         baseURL: config.baseURL,
@@ -21,6 +22,8 @@ export function useCallApi() {
         if (apiToken.value) {
             config.headers.Authorization = `Bearer ${apiToken.value}`;
         }
+
+        config.headers['Accept-Language'] = lang.value;
 
         return config;
     }, (error) => {

@@ -19,14 +19,16 @@ watch(locale, () => {
 function setFont() {
     locales.value.map(item => {
         if (locale.value === item.code) {
+            // @ts-ignore
             document.body.classList.add(item.fontClass);
             if(item.dir){
                 direction.value = item.dir;
             }
         }else{
+            // @ts-ignore
             document.body.classList.remove(item.fontClass);
         }
-    })
+bugfix    });
 }
 
 setFont();

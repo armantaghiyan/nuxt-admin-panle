@@ -28,7 +28,7 @@ function setFont() {
             // @ts-ignore
             document.body.classList.remove(item.fontClass);
         }
-bugfix    });
+    });
 }
 
 setFont();

@@ -4,6 +4,7 @@ export function useCallApi() {
     const config = useAppConfig();
     const pending = ref(false);
     const apiToken = useCookie('api_token');
+    const $app = appStore();
 
     const callApi = axios.create({
         baseURL: config.baseURL,
@@ -24,15 +25,18 @@ export function useCallApi() {
         return config;
     }, (error) => {
         pending.value = false;
+        $app.hideLoading();
 
         return Promise.reject(error);
     });
 
     callApi.interceptors.response.use((response) => {
+        $app.hideLoading();
         pending.value = false;
 
         return response;
     }, (error) => {
+        $app.hideLoading();
         pending.value = false;
 
         return Promise.reject(error);

@@ -6,8 +6,14 @@ const $app = appStore();
     <div>
         <slot/>
 
+        <fade-animate :duration="150">
+            <div v-if="$app.requestLoading" class="fixed z-100 top-0 flex items-center justify-center w-full min-h-screen bg-base/40">
+                <div class="loader"></div>
+            </div>
+        </fade-animate>
+
         <fade-animate :duration="300">
-            <div v-if="$app.loading" class="fixed z-50 top-0 flex items-center justify-center w-full min-h-screen bg-white">
+            <div v-if="$app.loading" class="fixed z-100 top-0 flex items-center justify-center w-full min-h-screen bg-white">
                 <div class="loader"></div>
             </div>
         </fade-animate>

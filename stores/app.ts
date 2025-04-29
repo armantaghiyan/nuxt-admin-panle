@@ -5,10 +5,18 @@ export const appStore = defineStore('app', {
         loading: true,
         isOpenSidebar: true,
         dir: 'ltr',
+
+        requestLoading: false,
     }),
     actions: {
         stopLoading() {
             this.loading = false;
+        },
+        showLoading() {
+            this.requestLoading = true;
+        },
+        hideLoading() {
+            this.requestLoading = false;
         }
     },
 })

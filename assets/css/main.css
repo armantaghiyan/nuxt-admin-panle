@@ -87,3 +87,11 @@
 .menu-active-item {
     @apply bg-primary text-white;
 }
+
+.error-message {
+    @apply text-[13px] text-danger;
+}
+
+.error-input {
+    @apply border-2 border-danger;
+}

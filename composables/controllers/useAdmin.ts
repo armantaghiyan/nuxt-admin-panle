@@ -2,7 +2,6 @@ import type {AdminLoginResponse} from "~/utils/api/admin";
 import {showLoading} from "~/utils/helper";
 
 export default function useAdmin() {
-
     const router = useRouter();
     const $user = userStore();
     const apiToken = useCookie('api_token', {

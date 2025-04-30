@@ -22,8 +22,8 @@ const {loginForm, login} = useAdmin();
                         <p class="mb-6">{{ $t('auth.login_desc') }}</p>
 
                         <form @submit.prevent="login" class="flex flex-col gap-6">
-                            <text-input :title="$t('auth.username')" :placeholder="$t('auth.enter_username')" v-model="loginForm.username"/>
-                            <text-input type="password" :title="$t('auth.password')" placeholder="············" v-model="loginForm.password"/>
+                            <text-input id="username" :title="$t('auth.username')" :placeholder="$t('auth.enter_username')" v-model="loginForm.username"/>
+                            <text-input id="password" type="password" :title="$t('auth.password')" placeholder="············" v-model="loginForm.password"/>
 
                             <btn-primary type="submit" class="w-full">{{ $t('auth.sin_in') }}</btn-primary>
                         </form>

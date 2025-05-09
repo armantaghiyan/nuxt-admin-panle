@@ -20,6 +20,9 @@ export default {
         update: "Update",
         copy_message: "Text copied successfully",
         copy_failed: "Copy failed",
+        username: "Username",
+        created_at: 'Created at',
+        updated_at: 'Updated at',
     },
     auth : {
         welcome: 'Welcome to Panel! 👋',
@@ -41,6 +44,10 @@ export default {
         dashboard: 'Dashboard',
         settings: 'Settings',
         list: 'List',
+        admin: 'Admin',
+    },
+    admin: {
+        last_login: 'Last login'
     },
     list: {
 

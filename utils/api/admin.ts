@@ -15,3 +15,18 @@ export interface AdminStartResponse extends BaseResponse {
         admin: Admin
     }
 }
+
+export interface AdminIndexResponse extends BaseResponse {
+
+    data: {
+        items: Admin[]
+        count: number
+    }
+}
+
+export interface AdminShowResponse extends BaseResponse {
+
+    data: {
+        item: Admin
+    }
+}

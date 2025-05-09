@@ -1,5 +1,5 @@
 <template>
-    <div class="overflow-auto">
+    <div class="overflow-x-auto">
         <table class="w-full">
             <slot/>
         </table>

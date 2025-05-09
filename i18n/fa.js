@@ -20,6 +20,9 @@ export default {
         update: "بروزرسانی",
         copy_message: "متن با موفقیت کپی شد",
         copy_message_fail: "کپی ناموفق بود",
+        username: "نام کاربری",
+        created_at: 'تاریخ ایجاد',
+        updated_at: 'تاریخ بروزرسانی',
     },
     auth: {
         welcome: 'به پنل خوش آمدید! 👋',
@@ -41,6 +44,10 @@ export default {
         dashboard: 'داشبورد',
         settings: 'تنظیمات',
         list: 'لیست',
+        admin: 'مدیران',
+    },
+    admin: {
+        last_login: 'آخرین ورود',
     },
     list: {},
     pagination: {

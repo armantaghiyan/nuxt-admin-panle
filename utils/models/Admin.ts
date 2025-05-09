@@ -4,5 +4,6 @@ export default interface Admin {
     username: string;
     image: string | null;
     last_login: Date;
+    created_at: Date;
     updated_at: Date;
 }

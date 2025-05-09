@@ -25,11 +25,17 @@ watch(breakpoint, () => {
                     <span class="text-white text-[22px] font-bold">{{ $t('app_name')}}</span>
                 </div>
                 <div class="px-3">
-                    <menu-item href="/">{{ $t('menu.dashboard') }}</menu-item>
+                    <menu-item href="/" :title="$t('menu.dashboard')">
+                        <i class="menu-icon tf-icons ti ti-smart-home text-[22px]"></i>
+                    </menu-item>
 
                     <menu-section>{{$t('menu.settings')}}</menu-section>
-
-                    <menu-item href="/list">{{ $t('menu.list') }}</menu-item>
+                    <menu-item href="/admin" :title="$t('menu.admin')">
+                        <i class="menu-icon ti ti-user text-[22px]"></i>
+                    </menu-item>
+                    <menu-item href="/list" :title="$t('menu.list')">
+                        <i class="menu-icon tf-icons ti ti-smart-home text-[22px]"></i>
+                    </menu-item>
                 </div>
             </div>
         </aside>

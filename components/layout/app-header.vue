@@ -25,9 +25,7 @@ const changeLanguage = (newLocale) => {
                         </template>
 
                         <div class="flex flex-col p-2 gap-1">
-                            <btn-clickable v-for="lang in locales"
-                                           @click="changeLanguage(lang.code)"
-                                           :class="{'text-primary bg-light-primary': lang.code === locale}">
+                            <btn-clickable v-for="lang in locales" @click="changeLanguage(lang.code)" :class="{'text-primary bg-light-primary': lang.code === locale}">
                                 {{ $t(`app.${lang.code}`) }}
                             </btn-clickable>
                         </div>
@@ -37,7 +35,7 @@ const changeLanguage = (newLocale) => {
                     </icon-button>
                 </div>
 
-                <img :src="`/images/icon/user.png`" alt="user icon" class="size-10">
+                <img :src="`/images/icon/user.jpg`" alt="user icon" class="size-10 rounded-full">
             </div>
         </card>
     </div>

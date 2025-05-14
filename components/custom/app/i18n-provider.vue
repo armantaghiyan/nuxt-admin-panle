@@ -23,6 +23,7 @@ function setFont() {
             document.body.classList.add(item.fontClass);
             if(item.dir){
                 direction.value = item.dir;
+                $app.dir = item.dir;
             }
         }else{
             // @ts-ignore

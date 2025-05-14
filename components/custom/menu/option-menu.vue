@@ -35,8 +35,8 @@ const $app = appStore();
             <MenuItems
                 class="absolute z-50 bg-white shadow-lg"
                 :class="{
-                    'left-0': position === 'left' || (position === 'auto' && $app.dir === 'rtl'),
-                    'right-0': position === 'right' || (position === 'auto' && $app.dir === 'ltr')
+                    'left-0': $app.dir === 'rtl',
+                    'right-0': $app.dir === 'ltr'
                 }"
                 :style="`width: ${width}px;border-radius: ${rounded}px; top: ${top}px`"
             >

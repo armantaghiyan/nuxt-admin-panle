@@ -23,6 +23,7 @@ export default {
         username: "نام کاربری",
         created_at: 'تاریخ ایجاد',
         updated_at: 'تاریخ بروزرسانی',
+        submit: 'ثبت',
     },
     auth: {
         welcome: 'به پنل خوش آمدید! 👋',
@@ -48,6 +49,9 @@ export default {
     },
     admin: {
         last_login: 'آخرین ورود',
+        admin_detail: 'جزئیات ادمین',
+        add_a_admin: 'اضافه کردن مدیر جدید',
+        admin_information: 'اطلاعات مدیر',
     },
     list: {},
     pagination: {

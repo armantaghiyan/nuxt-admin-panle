@@ -1,4 +1,9 @@
-import type {AdminIndexResponse, AdminLoginResponse, AdminShowResponse} from "~/utils/api/admin";
+import type {
+    AdminIndexResponse,
+    AdminLoginResponse,
+    AdminShowResponse,
+    AdminStoreAndUpdateResponse
+} from "~/utils/api/admin";
 import {showLoading} from "~/utils/helper";
 import type Admin from "~/utils/models/Admin";
 
@@ -45,6 +50,9 @@ export default function useAdmin() {
         id: '',
         name: '',
         username: '',
+        last_login: '',
+        created_at: '',
+        updated_at: '',
 
         search: '',
         page_rows: 7,
@@ -54,6 +62,7 @@ export default function useAdmin() {
     });
 
     function fetchData() {
+        showLoading();
         callApi.get<AdminIndexResponse>('/admin', {
             params: params,
         }).then(res => {
@@ -75,14 +84,35 @@ export default function useAdmin() {
 
     const item = ref<Admin>();
 
-    function show(id: string|number) {
+    function show(id: string | number, callback?: (admin: Admin) => void) {
+        showLoading();
         callApi.get<AdminShowResponse>(`/admin/${id}`, {
             params: params,
         }).then(res => {
             item.value = res.data.data.item;
+            callback?.(res.data.data.item);
         });
     }
 
+    //==================================================================================================================
+    const storeAndUpdateParams = reactive({
+        id: '',
+        name: '',
+        username: '',
+        password: '',
+        repeat_password: '',
+    });
+
+    function storeAndUpdate(id: string | number, method: 'post'|'patch') {
+        showLoading();
+        callApi[method]<AdminStoreAndUpdateResponse>(`/admin/${id}`, storeAndUpdateParams).then(res => {
+            router.replace({path: `/admin/${res.data.data.item.id}`})
+            item.value = res.data.data.item;
+        });
+    }
+
+    const store = () => storeAndUpdate('', 'post')
+    const update = (id: string | number) => storeAndUpdate(id, 'patch')
 
     return {
         loginForm,
@@ -97,5 +127,9 @@ export default function useAdmin() {
 
         item,
         show,
+
+        storeAndUpdateParams,
+        store,
+        update,
     }
 }

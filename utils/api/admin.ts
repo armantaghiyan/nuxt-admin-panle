@@ -30,3 +30,10 @@ export interface AdminShowResponse extends BaseResponse {
         item: Admin
     }
 }
+
+export interface AdminStoreAndUpdateResponse extends BaseResponse {
+
+    data: {
+        item: Admin
+    }
+}

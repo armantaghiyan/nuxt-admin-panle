@@ -23,6 +23,7 @@ export default {
         username: "Username",
         created_at: 'Created at',
         updated_at: 'Updated at',
+        submit: 'Submit',
     },
     auth : {
         welcome: 'Welcome to Panel! 👋',
@@ -47,7 +48,10 @@ export default {
         admin: 'Admin',
     },
     admin: {
-        last_login: 'Last login'
+        last_login: 'Last login',
+        admin_detail: 'admin detail',
+        add_a_admin: 'Add a new Admin',
+        admin_information: 'Admin information',
     },
     list: {
 

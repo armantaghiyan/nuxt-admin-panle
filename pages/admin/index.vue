@@ -9,35 +9,39 @@ onMounted(() => {
 <template>
     <div>
         <card :title="$t('app.filter')">
-            <filter-content>
-                <text-input :title="$t('global.id')" v-model="params.id"/>
-                <text-input :title="$t('global.name')" v-model="params.name"/>
-                <text-input :title="$t('global.username')" v-model="params.username"/>
-            </filter-content>
+            <form @submit.prevent="reFetchData">
+                <filter-content>
+                    <text-input :title="$t('global.id')" v-model="params.id"/>
+                    <text-input :title="$t('global.name')" v-model="params.name"/>
+                    <text-input :title="$t('global.username')" v-model="params.username"/>
+                </filter-content>
 
-            <action-content>
-                <div class="flex gap-4">
-                    <text-input :placeholder="$t('global.search')" class="sm:w-50 w-full" v-model="params.search"/>
-                    <btn-search @click="reFetchData"/>
-                </div>
+                <action-content>
+                    <div class="flex gap-4">
+                        <text-input :placeholder="$t('global.search')" class="sm:w-50 w-full" v-model="params.search"/>
+                        <btn-search/>
+                    </div>
 
-                <div class="flex gap-4">
-                    <page-rows v-model="params.page_rows"/>
+                    <div class="flex gap-4">
+                        <page-rows v-model="params.page_rows"/>
 
-                    <btn-primary-add/>
-                </div>
-            </action-content>
+                        <nuxt-link href="/admin/create">
+                            <btn-primary-add/>
+                        </nuxt-link>
+                    </div>
+                </action-content>
+            </form>
 
             <custom-table>
                 <custom-thead>
                     <custom-tr>
-                        <custom-th fixed :width="180" sort-key="id" v-model:sort="params.sort" v-model:sort-type="params.sort_type">{{ $t('global.id') }}</custom-th>
-                        <custom-th :width="180">{{ $t('global.name') }}</custom-th>
-                        <custom-th :width="180">{{ $t('global.username') }}</custom-th>
-                        <custom-th :width="180">{{ $t('admin.last_login') }}</custom-th>
-                        <custom-th :width="180">{{ $t('global.created_at') }}</custom-th>
-                        <custom-th :width="180">{{ $t('global.updated_at') }}</custom-th>
-                        <custom-th fixed :width="160">{{ $t('global.actions') }}</custom-th>
+                        <custom-th fixed :width="120" sort-key="id" v-model:sort="params.sort" v-model:sort-type="params.sort_type">{{ $t('global.id') }}</custom-th>
+                        <custom-th>{{ $t('global.name') }}</custom-th>
+                        <custom-th>{{ $t('global.username') }}</custom-th>
+                        <custom-th :width="165" sort-key="last_login" v-model:sort="params.sort" v-model:sort-type="params.last_login">{{ $t('admin.last_login') }}</custom-th>
+                        <custom-th :width="165" sort-key="created_at" v-model:sort="params.sort" v-model:sort-type="params.created_at">{{ $t('global.created_at') }}</custom-th>
+                        <custom-th :width="165" sort-key="updated_at" v-model:sort="params.sort" v-model:sort-type="params.updated_at">{{ $t('global.updated_at') }}</custom-th>
+                        <custom-th fixed :width="100">{{ $t('global.actions') }}</custom-th>
                     </custom-tr>
                 </custom-thead>
                 <custom-tbody>
@@ -52,16 +56,9 @@ onMounted(() => {
                         <custom-td>{{ item.updated_at }}</custom-td>
                         <custom-td class="flex">
                             <btn-see :href="`/admin/${item.id}`"/>
-                            <option-menu :width="160" position="auto" :top="40">
-                                <template #button>
-                                    <btn-option/>
-                                </template>
-
-                                <div class="p-2">
-                                    <btn-clickable>{{$t('global.edit')}}</btn-clickable>
-                                    <btn-clickable>{{$t('global.update')}}</btn-clickable>
-                                </div>
-                            </option-menu>
+                            <nuxt-link :href="`/admin/create/${item.id}`">
+                                <btn-edit/>
+                            </nuxt-link>
                         </custom-td>
                     </custom-tr>
                 </custom-tbody>

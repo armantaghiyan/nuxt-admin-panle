@@ -61,8 +61,16 @@ const showRange = (start: number, end: number, pages: (number | "...")[]) => {
     }
 };
 
-onMounted(() => {
+function calcPaginationPageCount(){
     paginationPageCount.value = Math.ceil(props.count / props.pageRows);
+}
+
+watch(() => props.count, () => {
+    calcPaginationPageCount();
+});
+
+onMounted(() => {
+    calcPaginationPageCount();
 });
 </script>
 

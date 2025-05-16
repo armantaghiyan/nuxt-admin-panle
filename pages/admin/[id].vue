@@ -1,7 +1,7 @@
 <script setup>
-import LabelItem from "~/components/custom/elements/label-item.vue";
+import RoleAdapter from "~/components/adapter/role-adapter.vue";
 
-const {show, item} = useAdmin();
+const {show, item, adminRoles, roles} = useAdmin();
 
 const route = useRoute();
 
@@ -42,7 +42,13 @@ onMounted(() => {
                 <label-item :title="$t('global.created_at')">{{item?.created_at}}</label-item>
                 <label-item :title="$t('global.updated_at')">{{item?.updated_at}}</label-item>
             </card>
-            <card class="lg:col-span-8 col-span-12">dasddasd</card>
+            <card :title="$t('roles')" class="lg:col-span-8 col-span-12">
+
+                <div class="px-6 pb-6 grid grid-cols-2 gap-6">
+                    <role-adapter v-for="role in roles" :role="role" :adminRoles="adminRoles"/>
+                </div>
+
+            </card>
         </div>
     </div>
 </template>

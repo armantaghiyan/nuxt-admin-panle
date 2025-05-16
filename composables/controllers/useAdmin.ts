@@ -6,6 +6,7 @@ import type {
 } from "~/utils/api/admin";
 import {showLoading} from "~/utils/helper";
 import type Admin from "~/utils/models/Admin";
+import type Role from "~/utils/models/Role";
 
 export default function useAdmin() {
     const router = useRouter();
@@ -83,6 +84,8 @@ export default function useAdmin() {
     //==================================================================================================================
 
     const item = ref<Admin>();
+    const adminRoles = ref<Role[]>([]);
+    const roles = ref<Role[]>([]);
 
     function show(id: string | number, callback?: (admin: Admin) => void) {
         showLoading();
@@ -90,6 +93,8 @@ export default function useAdmin() {
             params: params,
         }).then(res => {
             item.value = res.data.data.item;
+            roles.value = res.data.data.roles;
+            adminRoles.value = res.data.data.admin_roles;
             callback?.(res.data.data.item);
         });
     }
@@ -126,6 +131,8 @@ export default function useAdmin() {
         reFetchData,
 
         item,
+        adminRoles,
+        roles,
         show,
 
         storeAndUpdateParams,

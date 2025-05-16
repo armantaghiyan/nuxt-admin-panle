@@ -14,6 +14,10 @@ export default defineNuxtRouteMiddleware(async (to) => {
                 $user.login(response.data.data.admin);
             }
 
+            if (response.data.data.permissions) {
+                $user.setPermissions(response.data.data.permissions);
+            }
+
             $user.tryGetUser += 1;
         } catch (error) {
             console.error('Error during auto-login:', error);

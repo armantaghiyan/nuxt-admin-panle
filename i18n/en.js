@@ -46,12 +46,14 @@ export default {
         settings: 'Settings',
         list: 'List',
         admin: 'Admin',
+        access: 'Roles and permission',
     },
     admin: {
         last_login: 'Last login',
         admin_detail: 'admin detail',
         add_a_admin: 'Add a new Admin',
         admin_information: 'Admin information',
+        roles: 'Roles',
     },
     list: {
 
@@ -64,5 +66,18 @@ export default {
         text: "Are you sure you want to perform this operation?",
         confirm: "Yes",
         cancel: "Cancel",
+    },
+    roles: {
+        admin: 'Admins',
+    },
+    access: {
+        permissions: 'Permissions',
+        permission: {
+            admin: {
+                index: "Admin list",
+                store: "Admin store",
+                update: "Admin update",
+            }
+        }
     }
 }

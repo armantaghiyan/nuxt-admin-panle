@@ -1,5 +1,7 @@
 import type BaseResponse from "~/utils/api/base";
 import type Admin from "~/utils/models/Admin";
+import type Role from "~/utils/models/Role";
+import type Permission from "~/utils/models/Permission";
 
 export interface AdminLoginResponse extends BaseResponse {
 
@@ -12,7 +14,8 @@ export interface AdminLoginResponse extends BaseResponse {
 export interface AdminStartResponse extends BaseResponse {
 
     data: {
-        admin: Admin
+        admin: Admin,
+        permissions: Permission[] | null,
     }
 }
 
@@ -28,6 +31,8 @@ export interface AdminShowResponse extends BaseResponse {
 
     data: {
         item: Admin
+        admin_roles: Role[]
+        roles: Role[]
     }
 }
 

@@ -33,6 +33,9 @@ watch(breakpoint, () => {
                     <menu-item href="/admin" :title="$t('menu.admin')">
                         <i class="menu-icon ti ti-user text-[22px]"></i>
                     </menu-item>
+                    <menu-item href="/access" :title="$t('menu.access')">
+                        <i class="ti ti-fingerprint text-[22px]"></i>
+                    </menu-item>
                     <menu-item href="/list" :title="$t('menu.list')">
                         <i class="menu-icon tf-icons ti ti-smart-home text-[22px]"></i>
                     </menu-item>

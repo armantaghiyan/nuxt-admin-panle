@@ -46,12 +46,14 @@ export default {
         settings: 'تنظیمات',
         list: 'لیست',
         admin: 'مدیران',
+        access: 'نقش ها و دسترسی ها',
     },
     admin: {
         last_login: 'آخرین ورود',
         admin_detail: 'جزئیات ادمین',
         add_a_admin: 'اضافه کردن مدیر جدید',
         admin_information: 'اطلاعات مدیر',
+        roles: 'نقش ها',
     },
     list: {},
     pagination: {
@@ -62,5 +64,18 @@ export default {
         text: "آیا از انجام این عملیات اطمینان دارید؟",
         confirm: "بله",
         cancel: "انصراف"
+    },
+    roles: {
+        admin: 'مدیران',
+    },
+    access: {
+        permissions: 'دسترسی ها',
+        permission: {
+            admin: {
+                index: "لیست مدیران",
+                store: "ایجاد مدیر",
+                update: "ویرایش مدیران",
+            }
+        }
     }
 }

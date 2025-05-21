@@ -26,6 +26,7 @@ export default function useAdmin() {
     function login() {
         showLoading();
         callApi.post<AdminLoginResponse>('admin/login', loginForm).then(res => {
+            $user.tryGetUser = 0;
             $user.login(res.data.data.admin);
             apiToken.value = res.data.data.api_token;
             router.replace({path: '/'});

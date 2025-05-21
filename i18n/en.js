@@ -69,6 +69,8 @@ export default {
     },
     roles: {
         admin: 'Admins',
+        role: 'Role',
+        "Super Admin": 'Super admin',
     },
     access: {
         permissions: 'Permissions',
@@ -77,7 +79,14 @@ export default {
                 index: "Admin list",
                 store: "Admin store",
                 update: "Admin update",
-            }
+                add_role: "Add role",
+            },
+            role: {
+                index: "Role list",
+                store: "Role store",
+                update: "Role update",
+                destroy: "Role destroy",
+            },
         }
     }
 }

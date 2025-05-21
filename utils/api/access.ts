@@ -16,3 +16,17 @@ export interface AccessIndexResponse extends BaseResponse {
         items: Role[]
     }
 }
+
+export interface AccessStoreAndUpdateResponse extends BaseResponse {
+
+    data: {
+        item: Role
+    }
+}
+
+export interface AccessRoleShowResponse extends BaseResponse {
+
+    data: {
+        item: Role
+    }
+}

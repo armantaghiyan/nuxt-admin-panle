@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
     const $user = userStore();
     const {callApi} = useCallApi();
 
-    if (!$user.isAuth && $user.tryGetUser === 0) {
+    if (!$user.isAuth || $user.tryGetUser === 0) {
         try {
             const response = await callApi.get<AdminStartResponse>('admin/start');
 

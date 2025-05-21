@@ -67,6 +67,8 @@ export default {
     },
     roles: {
         admin: 'مدیران',
+        role: 'نقش ها',
+        "Super Admin": 'مدیر کل',
     },
     access: {
         permissions: 'دسترسی ها',
@@ -75,7 +77,14 @@ export default {
                 index: "لیست مدیران",
                 store: "ایجاد مدیر",
                 update: "ویرایش مدیران",
-            }
+                add_role: "افزودن نقش",
+            },
+            role: {
+                index: "لیست نقش ها",
+                store: "ایجاد نقش",
+                update: "بروزرسانی نقش ها",
+                destroy: "حذف نقش ها",
+            },
         }
     }
 }

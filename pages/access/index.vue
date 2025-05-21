@@ -1,5 +1,11 @@
 <script setup lang="ts">
-const {fetchData, items} = useAccess();
+const {fetchData, items, destroy} = useAccess();
+
+function destroyRole(roleId: number, index: number){
+    destroy(roleId, () => {
+        items.value.splice(index, 1)
+    });
+}
 
 onMounted(() => {
     fetchData();
@@ -30,7 +36,7 @@ onMounted(() => {
                     </custom-tr>
                 </custom-thead>
                 <custom-tbody>
-                    <custom-tr v-for="item in items" :key="item.id" class="border-b border-gray-5">
+                    <custom-tr v-for="(item, index) in items" :key="item.id" class="border-b border-gray-5">
                         <custom-td :copy="item.id">
                             <id-formater :id="item.id"/>
                         </custom-td>
@@ -39,6 +45,7 @@ onMounted(() => {
                         <custom-td>{{ item.updated_at }}</custom-td>
                         <custom-td class="flex">
                             <btn-see :href="`/access/${item.id}`"/>
+                            <btn-delete @click="destroyRole(item.id, index)"/>
                             <nuxt-link :href="`/access/create/${item.id}`">
                                 <btn-edit/>
                             </nuxt-link>

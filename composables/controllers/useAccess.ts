@@ -1,19 +1,24 @@
 import {showLoading} from "~/utils/helper";
 import type BaseResponse from "~/utils/api/base";
 import type Permission from "~/utils/models/Permission";
-import type {AccessIndexResponse, AccessShowResponse} from "~/utils/api/access";
-import type Admin from "~/utils/models/Admin";
+import type {
+    AccessIndexResponse,
+    AccessRoleShowResponse,
+    AccessShowResponse,
+    AccessStoreAndUpdateResponse
+} from "~/utils/api/access";
 import type Role from "~/utils/models/Role";
 
 export default function useAccess() {
     const {callApi} = useCallApi();
-    const $user = userStore();
+    const router = useRouter();
+    const alert = useAlert();
     //==================================================================================================================
-    function toggleAccess(roleId: number, callback?: () => void) {
+    function toggleAccess(roleId: number, adminId: number, callback?: () => void) {
         showLoading();
         callApi.post<BaseResponse>('access/role-toggle', {
             role_id: roleId,
-            admin_id: $user.user.id,
+            admin_id: adminId,
         }).then(res => {
             callback?.();
         });
@@ -49,6 +54,43 @@ export default function useAccess() {
         });
     }
 
+    //==================================================================================================================
+
+    const storeAndUpdateParams = reactive({
+        id: '',
+        name: '',
+    });
+
+    function storeAndUpdate(id: string | number, method: 'post'|'patch') {
+        showLoading();
+        callApi[method]<AccessStoreAndUpdateResponse>(`/access/${id}`, storeAndUpdateParams).then(res => {
+            router.replace({path: `/access/${res.data.data.item.id}`})
+        });
+    }
+
+    const store = () => storeAndUpdate('', 'post')
+    const update = (id: string | number) => storeAndUpdate(id, 'patch')
+
+    //==================================================================================================================
+
+    function showRole(id: string | number, callback?: (role: Role) => void) {
+        showLoading();
+        callApi.get<AccessRoleShowResponse>(`/access/role/${id}`).then(res => {
+            callback?.(res.data.data.item);
+        });
+    }
+
+    //==================================================================================================================
+
+    async function destroy(id: string | number, callback?: () => void) {
+        if(await alert.confirm()){
+            showLoading();
+            callApi.delete<BaseResponse>(`/access/${id}`).then(res => {
+                callback?.();
+            });
+        }
+    }
+
     return {
         fetchData,
         items,
@@ -59,5 +101,12 @@ export default function useAccess() {
         rolePermissionLoaded,
 
         togglePermission,
+
+        storeAndUpdateParams,
+        store,
+        update,
+        showRole,
+
+        destroy
     }
 }

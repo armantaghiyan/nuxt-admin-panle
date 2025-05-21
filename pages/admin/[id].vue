@@ -45,7 +45,7 @@ onMounted(() => {
             <card :title="$t('roles')" class="lg:col-span-8 col-span-12">
 
                 <div class="px-6 pb-6 grid grid-cols-2 gap-6">
-                    <role-adapter v-for="role in roles" :role="role" :adminRoles="adminRoles"/>
+                    <role-adapter v-for="role in roles" :role="role" :adminRoles="adminRoles" :adminId="item.id"/>
                 </div>
 
             </card>

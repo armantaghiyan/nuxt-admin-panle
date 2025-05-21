@@ -2,6 +2,7 @@
 import type Role from "~/utils/models/Role";
 
 const props = defineProps<{
+    adminId: number
     role: Role
     adminRoles: Role[]
 }>();
@@ -19,7 +20,7 @@ function isActive() {
 function toggleRole() {
     canToggle.value = false;
     showLoading();
-    toggleAccess(props.role.id, () => {
+    toggleAccess(props.role.id, props.adminId, () => {
         canToggle.value = true;
     });
 }

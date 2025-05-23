@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import {Permissions} from "~/utils/models/enums";
+
 const {fetchData, items, count, params, reFetchData} = useAdmin();
+const {hasPermission} = usePermission();
 
 onMounted(() => {
     fetchData();
@@ -25,7 +28,7 @@ onMounted(() => {
                     <div class="flex gap-4">
                         <page-rows v-model="params.page_rows"/>
 
-                        <nuxt-link href="/admin/create">
+                        <nuxt-link v-if="hasPermission(Permissions.ADMIN_STORE)" href="/admin/create">
                             <btn-primary-add/>
                         </nuxt-link>
                     </div>
@@ -56,7 +59,7 @@ onMounted(() => {
                         <custom-td>{{ item.updated_at }}</custom-td>
                         <custom-td class="flex">
                             <btn-see :href="`/admin/${item.id}`"/>
-                            <nuxt-link :href="`/admin/create/${item.id}`">
+                            <nuxt-link v-if="hasPermission(Permissions.ADMIN_UPDATE)" :href="`/admin/create/${item.id}`">
                                 <btn-edit/>
                             </nuxt-link>
                         </custom-td>

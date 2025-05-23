@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import {Permissions} from "~/utils/models/enums";
+
 const {fetchData, items, destroy} = useAccess();
+const {hasPermission} = usePermission();
 
 function destroyRole(roleId: number, index: number){
     destroy(roleId, () => {
@@ -19,7 +22,7 @@ onMounted(() => {
                 <div class="flex gap-4"></div>
 
                 <div class="flex gap-4">
-                    <nuxt-link href="/access/create">
+                    <nuxt-link v-if="hasPermission(Permissions.ROLE_STORE)"  href="/access/create">
                         <btn-primary-add/>
                     </nuxt-link>
                 </div>
@@ -44,9 +47,9 @@ onMounted(() => {
                         <custom-td>{{ item.created_at }}</custom-td>
                         <custom-td>{{ item.updated_at }}</custom-td>
                         <custom-td class="flex">
-                            <btn-see :href="`/access/${item.id}`"/>
-                            <btn-delete @click="destroyRole(item.id, index)"/>
-                            <nuxt-link :href="`/access/create/${item.id}`">
+                            <btn-see v-if="hasPermission(Permissions.ROLE_UPDATE)" :href="`/access/${item.id}`"/>
+                            <btn-delete v-if="hasPermission(Permissions.ROLE_DESTROY)" @click="destroyRole(item.id, index)"/>
+                            <nuxt-link v-if="hasPermission(Permissions.ADMIN_UPDATE)" :href="`/access/create/${item.id}`">
                                 <btn-edit/>
                             </nuxt-link>
                         </custom-td>

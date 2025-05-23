@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import {Permissions} from "~/utils/models/enums";
+
+const {hasPermission} = usePermission();
 const {breakpoint} = useBreakpoint();
 const $app = appStore()
 
@@ -29,15 +32,12 @@ watch(breakpoint, () => {
                         <i class="menu-icon tf-icons ti ti-smart-home text-[22px]"></i>
                     </menu-item>
 
-                    <menu-section>{{$t('menu.settings')}}</menu-section>
-                    <menu-item href="/admin" :title="$t('menu.admin')">
+                    <menu-section v-if="hasPermission(Permissions.ADMIN_INDEX) || hasPermission(Permissions.ROLE_INDEX)">{{$t('menu.settings')}}</menu-section>
+                    <menu-item v-if="hasPermission(Permissions.ADMIN_INDEX)" href="/admin" :title="$t('menu.admin')">
                         <i class="menu-icon ti ti-user text-[22px]"></i>
                     </menu-item>
-                    <menu-item href="/access" :title="$t('menu.access')">
+                    <menu-item v-if="hasPermission(Permissions.ROLE_INDEX)" href="/access" :title="$t('menu.access')">
                         <i class="ti ti-fingerprint text-[22px]"></i>
-                    </menu-item>
-                    <menu-item href="/list" :title="$t('menu.list')">
-                        <i class="menu-icon tf-icons ti ti-smart-home text-[22px]"></i>
                     </menu-item>
                 </div>
             </div>

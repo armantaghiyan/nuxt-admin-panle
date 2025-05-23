@@ -7,7 +7,8 @@ export const userStore = defineStore('user', {
         isAuth: false as boolean,
         user: {} as Partial<Admin>,
         tryGetUser: 0,
-        permissions: [] as Permission[]
+        permissions: [] as Permission[],
+        adminPermissions: [] as Permission[],
     }),
     actions: {
         login(user: Admin) {
@@ -16,6 +17,9 @@ export const userStore = defineStore('user', {
         },
         setPermissions(permissions: Permission[]) {
             this.permissions = permissions;
+        },
+        setAdminPermissions(adminPermissions: Permission[]) {
+            this.adminPermissions = adminPermissions;
         },
         logout() {
             this.user = {};

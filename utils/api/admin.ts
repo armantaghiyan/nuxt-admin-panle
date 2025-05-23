@@ -15,7 +15,8 @@ export interface AdminStartResponse extends BaseResponse {
 
     data: {
         admin: Admin,
-        permissions: Permission[] | null,
+        permissions: Permission[],
+        admin_permissions: Permission[],
     }
 }
 
